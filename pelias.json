@@ -317,14 +317,6 @@
           "agencyId": "9 TOWN",
           "agencyName": "9 TOWN",
           "layerName": "Stop"
-        },
-        {
-          "layerId": "stops",
-          "url": "https://www.norwalktransit.com/s/GTFS_Data.zip",
-          "filename": "norwalk-stops.txt",
-          "agencyId": "NORWALK",
-          "agencyName": "NORWALK",
-          "layerName": "Stop"
         }
       ]
     },
