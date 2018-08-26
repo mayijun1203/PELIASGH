@@ -45,18 +45,12 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "http://download.geofabrik.de/north-america/us/connecticut-latest.osm.pbf" },
-        { "sourceURL": "http://download.geofabrik.de/north-america/us/new-jersey-latest.osm.pbf" },
-        { "sourceURL": "http://download.geofabrik.de/north-america/us/new-york-latest.osm.pbf" },
-        { "sourceURL": "http://download.geofabrik.de/north-america/us/pennsylvania-latest.osm.pbf" }
+        { "sourceURL": "http://download.geofabrik.de/north-america/us-northeast-latest.osm.pbf" }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
       "import": [
-        { "filename": "connecticut-latest.osm.pbf" },
-        { "filename": "new-jersey-latest.osm.pbf" },
-        { "filename": "new-york-latest.osm.pbf" },
-        { "filename": "pennsylvania-latest.osm.pbf" }
+        { "filename": "us-northeast-latest.osm.pbf" }
       ]
     },
     "openaddresses": {
