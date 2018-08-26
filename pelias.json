@@ -1,0 +1,344 @@
+{
+  "logger": {
+    "level": "info",
+    "timestamp": false
+  },
+  "esclient": {
+    "hosts": [
+      { "host": "elasticsearch" }
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "1"
+      }
+    }
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "http://api:4000/v1/"
+    }
+  },
+  "api": {
+    "textAnalyzer": "libpostal",
+    "services": {
+      "pip": { "url": "http://pip:4200" },
+      "libpostal": { "url": "http://libpostal:8080" },
+      "placeholder": { "url": "http://placeholder:4100" },
+      "interpolation": { "url": "http://interpolation:4300" }
+    },
+    "defaultParameters": {
+      "focus.point.lat": 40.75,
+      "focus.point.lon": -74
+    }
+  },
+  "imports": {
+    "adminLookup": {
+      "enabled": true
+    },
+    "geonames": {
+      "datapath": "/data/geonames",
+      "countryCode": "ALL"
+    },
+    "openstreetmap": {
+      "download": [
+        { "sourceURL": "http://download.geofabrik.de/north-america/us-northeast-latest.osm.pbf" }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/data/openstreetmap",
+      "import": [
+        { "filename": "us-northeast-latest.osm.pbf" }
+      ]
+    },
+    "openaddresses": {
+      "datapath": "/data/openaddresses",
+      "files": [
+        "us/ct/statewide.csv",
+        "us/nj/statewide.csv",
+        "us/ny/statewide.csv"
+      ]
+    },
+    "polyline": {
+      "datapath": "/data/polylines",
+      "files": [ "extract.0sv" ]
+    },
+    "whosonfirst": {
+      "datapath": "/data/whosonfirst",
+      "importVenues": false,
+      "importPostalcodes": true,
+      "importPlace": [
+        "85688629",
+        "85688607",
+        "85688543"
+      ]
+    },
+    "transit": {
+      "datapath": "/data/transit",
+      "feeds": [
+        {
+          "layerId": "bikeshare",
+          "url": "https://gbfs.citibikenyc.com/gbfs/en/station_information.json",
+          "filename": "CitiBike.json",
+          "agencyId": "Citi Bike",
+          "agencyName": "Citi Bike",
+          "layerName": "bikeshare"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/nyct/subway/google_transit.zip",
+          "filename": "mtanyctsubway-stops.txt",
+          "agencyId": "MTA NYCT SUBWAY",
+          "agencyName": "MTA NYCT SUBWAY",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_bronx.zip",
+          "filename": "mtanyctbusbronx-stops.txt",
+          "agencyId": "MTA NYCT BRONX BUS",
+          "agencyName": "MTA NYCT BRONX BUS",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_brooklyn.zip",
+          "filename": "mtanyctbusbrooklyn-stops.txt",
+          "agencyId": "MTA NYCT BROOKLYN BUS",
+          "agencyName": "MTA NYCT BROOKLYN BUS",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_manhattan.zip",
+          "filename": "mtanyctbusmanhattan-stops.txt",
+          "agencyId": "MTA NYCT MANHATTAN BUS",
+          "agencyName": "MTA NYCT MANHATTAN BUS",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_queens.zip",
+          "filename": "mtanyctbusqueens-stops.txt",
+          "agencyId": "MTA NYCT QUEENS BUS",
+          "agencyName": "MTA NYCT QUEENS BUS",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/nyct/bus/google_transit_staten_island.zip",
+          "filename": "mtanyctbusstatenisland-stops.txt",
+          "agencyId": "MTA NYCT STATEN ISLAND BUS",
+          "agencyName": "MTA NYCT STATEN ISLAND BUS",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/busco/google_transit.zip",
+          "filename": "mtabusco-stops.txt",
+          "agencyId": "MTA BUS COMPANY",
+          "agencyName": "MTA BUS COMPANY",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/lirr/google_transit.zip",
+          "filename": "mtalirr-stops.txt",
+          "agencyId": "MTA LIRR",
+          "agencyName": "MTA LIRR",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://web.mta.info/developers/data/mnr/google_transit.zip",
+          "filename": "mtamnr-stops.txt",
+          "agencyId": "MTA MNR",
+          "agencyName": "MTA MNR",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://data.trilliumtransit.com/gtfs/path-nj-us/path-nj-us.zip",
+          "filename": "path-stops.txt",
+          "agencyId": "PATH",
+          "agencyName": "PATH",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://www.nyc.gov/html/dot/downloads/misc/siferry-gtfs.zip",
+          "filename": "nycdotsiferry-stops.txt",
+          "agencyId": "NYC DOT SI FERRY",
+          "agencyName": "NYC DOT SI FERRY",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://nycferry.connexionz.net/rtt/public/utility/gtfs.aspx?google_transit.zip",
+          "filename": "nycferry-stops.txt",
+          "agencyId": "NYC FERRY",
+          "agencyName": "NYC FERRY",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://s3.amazonaws.com/data.bytemark.co/nywaterway/nywaterway.zip",
+          "filename": "nywaterway-stops.txt",
+          "agencyId": "NY WATERWAY",
+          "agencyName": "NY WATERWAY",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://www.suffolkcountyny.gov/portals/0/publicworks/zip/google_transit.zip",
+          "filename": "suffolk-stops.txt",
+          "agencyId": "SUFFOLK",
+          "agencyName": "SUFFOLK",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://s3.amazonaws.com/datatools-nysdot/public/Westchester_County_Bee-Line_System.zip",
+          "filename": "beeline-stops.txt",
+          "agencyId": "BEE-LINE",
+          "agencyName": "BEE-LINE",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://s3.amazonaws.com/datatools-nysdot/public/TappanZee_Express.zip",
+          "filename": "tzx-stops.txt",
+          "agencyId": "TAPPAN ZEE EXPRESS",
+          "agencyName": "TAPPAN ZEE EXPRESS",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://s3.amazonaws.com/datatools-nysdot/public/UCAT_Ulster_County_Area_Transit.zip",
+          "filename": "ucat-stops.txt",
+          "agencyId": "UCAT",
+          "agencyName": "UCAT",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://www.cdta.org/schedules/google_transit.zip",
+          "filename": "cdta-stops.txt",
+          "agencyId": "CDTA",
+          "agencyName": "CDTA",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://scheduledata.rgrta.com/google_transit_merged.zip",
+          "filename": "rgrta-stops.txt",
+          "agencyId": "RGRTA",
+          "agencyName": "RGRTA",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://www.nfta.com/metro/__googletransit/google_transit.zip",
+          "filename": "nfta-stops.txt",
+          "agencyId": "NFTA",
+          "agencyName": "NFTA",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://api.transitfeeds.com/v1/getLatestFeedVersion?feed=central-new-york-rta%2F524&key=7dc6415e-131c-4977-851a-04db68ecdd2f",
+          "filename": "centro-stops.txt",
+          "agencyId": "CENTRO",
+          "agencyName": "CENTRO",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://api.transitfeeds.com/v1/getLatestFeedVersion?feed=jfk-airtrain%2F433&key=7dc6415e-131c-4977-851a-04db68ecdd2f",
+          "filename": "jfk-stops.txt",
+          "agencyId": "JFK",
+          "agencyName": "JFK",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://api.transitfeeds.com/v1/getLatestFeedVersion?feed=nassau-inter-county-express%2F268&key=7dc6415e-131c-4977-851a-04db68ecdd2f",
+          "filename": "nice-stops.txt",
+          "agencyId": "NICE",
+          "agencyName": "NICE",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://api.transitfeeds.com/v1/getLatestFeedVersion?feed=nj-transit%2F408&key=7dc6415e-131c-4977-851a-04db68ecdd2f",
+          "filename": "njtrail-stops.txt",
+          "agencyId": "NJTRANSIT RAIL",
+          "agencyName": "NJTRANSIT RAIL",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://api.transitfeeds.com/v1/getLatestFeedVersion?feed=nj-transit%2F409&key=7dc6415e-131c-4977-851a-04db68ecdd2f",
+          "filename": "njtbus-stops.txt",
+          "agencyId": "NJTRANSIT BUS",
+          "agencyName": "NJTRANSIT BUS",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://www.cttransit.com/sites/default/files/gtfs/googlect_transit.zip",
+          "filename": "cthfnhnbwbmd-stops.txt",
+          "agencyId": "CT TRANSIT HFNHNBWBMD",
+          "agencyName": "CT TRANSIT HFNHNBWBMD",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://www.cttransit.com/sites/default/files/gtfs/googlestam_transit.zip",
+          "filename": "ctstam-stops.txt",
+          "agencyId": "CT TRANSIT STAM",
+          "agencyName": "CT TRANSIT STAM",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://www.shorelineeast.com/google_transit.zip",
+          "filename": "sle-stops.txt",
+          "agencyId": "SLE",
+          "agencyName": "SLE",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://data.trilliumtransit.com/gtfs/ninetown-connecticut-us/ninetown-connecticut-us.zip",
+          "filename": "9town-stops.txt",
+          "agencyId": "9 TOWN",
+          "agencyName": "9 TOWN",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://www.norwalktransit.com/s/GTFS_Data.zip",
+          "filename": "norwalk-stops.txt",
+          "agencyId": "NORWALK",
+          "agencyName": "NORWALK",
+          "layerName": "Stop"
+        }
+      ]
+    },
+    "interpolation": {
+      "download": {
+        "tiger": {
+          "datapath": "/data/tiger",
+          "states": [
+            { "state_code": 9 },
+            { "state_code": 34 },
+            { "state_code": 36 }
+          ]
+        }
+      }
+    }
+  }
+}
