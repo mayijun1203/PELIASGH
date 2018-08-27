@@ -58,8 +58,7 @@
       "files": [
         "us/ct/statewide.csv",
         "us/nj/statewide.csv",
-        "us/ny/city_of_new_york.csv",
-        "us/ny/westchester.csv"
+        "us/ny/statewide.csv"
       ]
     },
     "polyline": {
