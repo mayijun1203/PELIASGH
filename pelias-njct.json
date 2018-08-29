@@ -57,9 +57,7 @@
       "datapath": "/data/openaddresses",
       "files": [
         "us/ct/statewide.csv",
-        "us/nj/statewide.csv",
-        "us/ny/city_of_new_york.csv",
-        "us/ny/westchester.csv"
+        "us/nj/statewide.csv"
       ]
     },
     "polyline": {
@@ -72,17 +70,7 @@
       "importPostalcodes": true,
       "importPlace": [
         "85688629",
-        "85688607",
-        "102083063",
-        "102082361",
-        "102081863",
-        "102082377",
-        "102081779",
-        "102082371",
-        "102082395",
-        "102082373",
-        "102082385",
-        "102083007"
+        "85688607"
       ]
     },
     "transit": {
@@ -234,6 +222,38 @@
         },
         {
           "layerId": "stops",
+          "url": "http://www.cdta.org/schedules/google_transit.zip",
+          "filename": "cdta-stops.txt",
+          "agencyId": "CDTA",
+          "agencyName": "CDTA",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://scheduledata.rgrta.com/google_transit_merged.zip",
+          "filename": "rgrta-stops.txt",
+          "agencyId": "RGRTA",
+          "agencyName": "RGRTA",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "http://www.nfta.com/metro/__googletransit/google_transit.zip",
+          "filename": "nfta-stops.txt",
+          "agencyId": "NFTA",
+          "agencyName": "NFTA",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
+          "url": "https://api.transitfeeds.com/v1/getLatestFeedVersion?feed=central-new-york-rta%2F524&key=7dc6415e-131c-4977-851a-04db68ecdd2f",
+          "filename": "centro-stops.txt",
+          "agencyId": "CENTRO",
+          "agencyName": "CENTRO",
+          "layerName": "Stop"
+        },
+        {
+          "layerId": "stops",
           "url": "https://api.transitfeeds.com/v1/getLatestFeedVersion?feed=jfk-airtrain%2F433&key=7dc6415e-131c-4977-851a-04db68ecdd2f",
           "filename": "jfk-stops.txt",
           "agencyId": "JFK",
@@ -304,17 +324,7 @@
           "datapath": "/data/tiger",
           "states": [
             { "state_code": 9 },
-            { "state_code": 34 },
-            { "state_code": 36, "county_code": 5 },
-            { "state_code": 36, "county_code": 47 },
-            { "state_code": 36, "county_code": 61 },
-            { "state_code": 36, "county_code": 81 },
-            { "state_code": 36, "county_code": 85 },
-            { "state_code": 36, "county_code": 59 },
-            { "state_code": 36, "county_code": 103 },
-            { "state_code": 36, "county_code": 119 },
-            { "state_code": 36, "county_code": 87 },
-            { "state_code": 36, "county_code": 79 }
+            { "state_code": 34 }
           ]
         }
       }
